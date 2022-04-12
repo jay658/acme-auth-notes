@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { logout } from './store';
 import { Link } from 'react-router-dom';
 
-const Home = ({ auth, logout, myNotes})=> {
+const Home = ({ auth, logout, notes})=> {
   return (
     <div>
       Welcome { auth.username }
       <button onClick={ logout }>Logout</button>
       <div>
-        You have added { myNotes.length } notes.
+        You have added { notes.length } notes.
         <br />
         <Link to='/notes'>Access and Add Notes</Link>
       </div>
@@ -17,13 +17,7 @@ const Home = ({ auth, logout, myNotes})=> {
   );
 };
 
-const mapState = ({auth, notes})=>{
-  const myNotes = notes.filter(note => note.userId === auth?.id)
-  return{
-    auth,
-    myNotes
-  }
-}
+const mapState = state => state;
 const mapDispatch = (dispatch)=> {
   return {
     logout: ()=> {

@@ -16,6 +16,7 @@ class Notes extends React.Component{
   onSubmit(ev){
     ev.preventDefault()
     this.props.createNote({...this.state, userId: this.props.auth.id})
+    this.setState({txt : ""})
   }
 
   onChange(ev){
