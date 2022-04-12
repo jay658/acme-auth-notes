@@ -14,7 +14,6 @@ class App extends React.Component{
   }
   render(){
     const { auth } = this.props;
-    console.log(auth);
 
     if(!auth.id){
       return (
@@ -41,7 +40,7 @@ const mapDispatch = (dispatch)=> {
   return {
     attemptLogin: ()=> {
       return dispatch(attemptLogin());
-    }
+    },
   }
 }
 
